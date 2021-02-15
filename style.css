@@ -8,7 +8,7 @@
 }
 
 .container {
-  width: 800px;
+  width: 45vw;
   margin: 0 auto;
   text-align: center;
   padding-top: 10px;
@@ -61,11 +61,11 @@ input::placeholder {
 }
 
 .input-first {
-  width: 300px;
+  width: 25vw;
 }
 
 .input-second {
-  width: 200px;
+  width: 20vw;
 }
 
 .input-second::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
@@ -129,7 +129,7 @@ img {
 }
 
 p.whereSpent {
-  width: 400px;
+  width: 40vw;
   padding-left: 10px;
   background: none;
   color: #000;
@@ -141,7 +141,7 @@ p.whereSpent {
 }
 
 .expencese {
-  width: 200px;
+  width: 20vh;
   background: none;
   color: #000;
   font-family: 'Montserrat', sans-serif;
