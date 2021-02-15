@@ -6,6 +6,8 @@ let inputSecond = null;
 let total = 0;
 let firstField = null;
 let secondField = null;
+let imageField = null
+
 
 window.onload = function init() {
   inputFirst = document.getElementById('input-first');
@@ -50,6 +52,8 @@ const render = () => {
       total += +item.textSecond;
     })
     sum.innerText = total;
+
+    console.log(allItems)
   }
 
   allItems.map((item, index) => {
@@ -71,6 +75,15 @@ const render = () => {
       secondField = document.createElement('p');
       secondField.className = 'secondField';
       secondField.innerText = item.textSecond;
+
+      imageField = document.createElement('img');
+      imageField.className = 'imageEdit';
+      imageField.src = 'img/edit.svg';
+      imageField.onclick = () => {
+        item.isEdit = !item.isEdit;
+        render();
+        firstField.focus();
+      }
     } else {
       firstField = document.createElement('input');
       firstField.className = 'firstFieldEdit';
@@ -83,6 +96,14 @@ const render = () => {
       secondField.value = item.textSecond;
       secondField.type = 'number';
       secondField.disabled = false;
+
+      imageField = document.createElement('img');
+      imageField.className = 'imageDone';
+      imageField.src = 'img/done.svg';
+      imageField.onclick = () => {
+        item.isEdit = !item.isEdit;
+        render();
+      }
     }
 
     firstField.onchange = (event) => {
@@ -93,10 +114,6 @@ const render = () => {
       allItems[index].textSecond = event.target.value
     }
 
-    const imageEdit = document.createElement('img');
-    imageEdit.className = 'imageEdit';
-    imageEdit.src = 'img/edit.svg';
-
     const imageDelete = document.createElement('img');
     imageDelete.className = 'imageDelete';
     imageDelete.src = 'img/delete.svg';
@@ -105,18 +122,13 @@ const render = () => {
       onClickImageDelete(index);
     }
 
-    imageEdit.onclick = () => {
-      item.isEdit = !item.isEdit;
-      render();
-      firstField.focus()
-    }
 
     totalCalc();
 
     container.appendChild(countNum);
     container.appendChild(firstField);
     container.appendChild(secondField);
-    container.appendChild(imageEdit);
+    container.appendChild(imageField);
     container.appendChild(imageDelete);
     content.appendChild(container);
   })
@@ -125,7 +137,7 @@ const render = () => {
 const onClickImageDelete = (index) => {
   allItems.splice(index, 1);
   render();
-  refreshSum()
+  refreshSum();
 }
 
 const refreshSum = () => {
@@ -135,3 +147,4 @@ const refreshSum = () => {
   })
   sum.innerText = total;
 }
+
