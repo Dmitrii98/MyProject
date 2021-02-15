@@ -81,11 +81,11 @@ const render = () => {
     imageDelete.src = 'img/delete.svg';
 
     imageDelete.onclick = () => {
-      onClickImageDelete(whereSpent, expencese)
+      onClickImageDelete(whereSpent, expencese);
     }
 
     imageEdit.onclick = () => {
-      onClickImageEdit()
+      onClickImageEdit();
     }
 
     totalCalc();
@@ -100,8 +100,8 @@ const render = () => {
 }
 
 const onClickImageDelete = (index) => {
-  allItems.splice(index, 1)
-  render()
+  allItems.splice(index, 1);
+  render();
 }
 
 const onClickImageEdit = (firstInput, secondInput) => {
