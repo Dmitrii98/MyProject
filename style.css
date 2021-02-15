@@ -4,7 +4,10 @@
 
 .main {
   height: 100vh;
-  background-color: rgb(134, 153, 165);
+  width: 100vw;
+  background-image: url("img/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .container {
@@ -27,9 +30,12 @@ p {
   text-align: start;
   margin-bottom: 5px;
   font-family: 'Raleway', sans-serif;
-  font-size: 14px;
+  font-size: 22px;
+  color: #1d1c17;
+  font-weight: bold;
+  background-color: rgba(255,255,255, 0.2);
+  border-radius: 5px;
 }
-
 
 .second-block {
   margin-left: 15px;
@@ -47,7 +53,7 @@ input {
   height: 40px;
   padding-left: 15px;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
 }
 
 input:focus {
@@ -92,7 +98,7 @@ input::placeholder {
   width: 100px;
   text-align: center;
   font-family: 'Raleway', sans-serif;
-  background-color: rgba(0, 128, 0, 0.4);
+  background-color: rgba(0, 128, 0);
   border: none;
   transition: background-color, color 0.2s;
   font-size: 16px;
@@ -106,25 +112,39 @@ input::placeholder {
   color: #fff;
 }
 
+.btn:focus{
+  outline: none;
+}
+
 .total {
   align-items: end;
   text-align: end;
   margin-right: 60px;
 }
 
-span {
+.total-span {
   font-family: 'Montserrat', sans-serif;
-  font-size: 30px;
+  font-size: 36px;
+  font-weight: bold;
+  background-color: rgba(255,255,255, 0.7);
+}
+
+#sum{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 36px;
+  font-weight: bold;
+  background-color: rgba(255,255,255, 0.7);
 }
 
 .task-container {
   display: flex;
   align-items: center;
   margin: 0 auto;
-  border: 2px #000 solid;
   margin-bottom: 10px;
   margin-top: 10px;
-  border-radius: 10px;
+  background-color: rgba(255,255,255, 0.7);
+  border-radius: 6px;
+
 }
 
 img {
@@ -151,14 +171,16 @@ p.firstField {
   text-align: start;
   margin-bottom: 0;
   word-wrap: break-word;
+  font-weight: 400;
 }
 
 input.firstFieldEdit {
-  background-color: #fff;
+  background-color: rgba(255,255,255, 0.6);
   width: 22vw;
   margin-left: 10px;
   font-family: 'Montserrat', sans-serif;
   font-size: 30px;
+  padding-left: 0;
 }
 
 .secondField {
@@ -171,18 +193,19 @@ input.firstFieldEdit {
   margin-right: 10px;
   padding: 0;
   word-wrap: break-word;
+  font-weight: 400;
 }
 
 input.secondFieldEdit {
-  background-color: #fff;
-  width: 12vw;
-  margin-left: 10px;
+  background-color: rgba(255,255,255, 0.7);
+  width: 11.7vw;
   font-family: 'Montserrat', sans-serif;
   font-size: 30px;
+  margin-left: 30px;
+
 }
 
 .total {
-  border-bottom: 2px #000 solid;
   margin: 0 auto;
   margin-bottom: 20px;
 }
@@ -195,3 +218,4 @@ p.countNum {
   font-size: 30px;
   text-align: center;
 }
+

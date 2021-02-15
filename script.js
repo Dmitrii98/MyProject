@@ -8,7 +8,6 @@ let firstField = null;
 let secondField = null;
 let imageField = null
 
-
 window.onload = function init() {
   inputFirst = document.getElementById('input-first');
   inputSecond = document.getElementById('input-second');
@@ -16,7 +15,7 @@ window.onload = function init() {
   inputSecond.addEventListener('change', updateValSecond);
 
   const sum = document.getElementById('sum');
-  sum.innerText = total;
+  sum.innerText = `${total} ₽`;
   render();
 }
 
@@ -31,7 +30,9 @@ const onclickButton = () => {
   allItems.push({
     textFirst: valueInputFirst,
     textSecond: valueInputSecond,
-    isEdit: false
+    isEdit: false,
+    isEditFirst: false,
+    isEditSecond: false
   });
   valueInputFirst = '';
   valueInputSecond = 0;
@@ -51,9 +52,7 @@ const render = () => {
     allItems.forEach(item => {
       total += +item.textSecond;
     })
-    sum.innerText = total;
-
-    console.log(allItems)
+    sum.innerText = `${total} ₽`;
   }
 
   allItems.map((item, index) => {
@@ -74,7 +73,7 @@ const render = () => {
 
       secondField = document.createElement('p');
       secondField.className = 'secondField';
-      secondField.innerText = item.textSecond;
+      secondField.innerText = `${item.textSecond} ₽` ;
 
       imageField = document.createElement('img');
       imageField.className = 'imageEdit';
@@ -102,6 +101,44 @@ const render = () => {
       imageField.src = 'img/done.svg';
       imageField.onclick = () => {
         item.isEdit = !item.isEdit;
+        render();
+      }
+    }
+
+    if(item.isEditFirst === false){
+      firstField.ondblclick = () => {
+        item.isEditFirst = !item.isEditFirst;
+        render();
+        firstField.focus();
+      }
+    }else{
+      firstField = document.createElement('input');
+      firstField.className = 'firstFieldEdit';
+      firstField.value = item.textFirst;
+      firstField.type = 'text';
+      firstField.disabled = false;
+
+      firstField.onblur = () => {
+        item.isEditFirst = !item.isEditFirst;
+        render();
+      }
+    }
+
+    if(item.isEditSecond === false){
+      secondField.ondblclick = () => {
+        item.isEditSecond = !item.isEditSecond;
+        render();
+        secondField.focus();
+      }
+    }else{
+      secondField = document.createElement('input');
+      secondField.className = 'secondFieldEdit';
+      secondField.value = item.textSecond;
+      secondField.type = 'number';
+      secondField.disabled = false;
+
+      secondField.onblur = () => {
+        item.isEditSecond = !item.isEditSecond;
         render();
       }
     }
@@ -145,6 +182,6 @@ const refreshSum = () => {
   allItems.forEach(item => {
     total += +item.textSecond;
   })
-  sum.innerText = total;
+  sum.innerText = `${total} ₽`;
 }
 
