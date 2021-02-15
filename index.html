@@ -1,40 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Project</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Raleway&family=Roboto&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>Project</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway&family=Roboto&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <div class="main">
-    <div class="container">
-        <h1 class="headline">Учет моих расходов</h1>
+  <div class="container">
+    <h1 class="headline">Учет моих расходов</h1>
 
-        <div class="input-date">
-            <div class="first-block">
-                <p class="first-text">Куда было потрачено:</p>
-                <input class="input-first" id="input-first" type="text" placeholder="Куда было потрачено">
-            </div>
+    <div class="input-date">
+      <div class="first-block">
+        <p class="first-text">Куда было потрачено:</p>
+        <input
+                class="input-first"
+                id="input-first"
+                type="text"
+                placeholder="Куда было потрачено"
+        >
+      </div>
 
-            <div class="second-block">
-                <p class="second-text">Сколько было потрачено:</p>
-                <input class="input-second" id="input-second" type="number" placeholder="Сколько было потрачено">
-            </div>
+      <div class="second-block">
+        <p class="second-text">Сколько было потрачено:</p>
+        <input
+                class="input-second"
+                id="input-second"
+                type="number"
+                placeholder="Сколько было потрачено"
+        >
+      </div>
+      <button
+              onclick="onclickButton()"
+              class="btn"
+      >
+        Добавить
+      </button>
+    </div><!--input-date-->
 
-            <button onclick="onclickButton()" class="btn">Добавить</button>
-
-        </div><!--input-date-->
-
-        <div class="total"><span>Итого: </span> <span id="sum"></span></div>
-        <div id="content-page"></div>
-
-    </div><!-- container-->
+    <div class="total">
+      <span>Итого: </span>
+      <span id="sum"></span>
+    </div>
+    <div id="content-page"></div>
+  </div><!-- container-->
 </div><!--main-->
-
 
 <script src="script.js"></script>
 </body>

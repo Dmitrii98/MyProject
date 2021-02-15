@@ -1,9 +1,9 @@
-*{
+* {
     margin: 0;
 }
 
 .main {
-    height: 1000px;
+    height: 100vh;
     background-color: rgb(134, 153, 165);
 }
 
@@ -13,7 +13,6 @@
     text-align: center;
     padding-top: 10px;
     height: 500px;
-
 }
 
 .headline {
@@ -51,12 +50,12 @@ input {
     border-radius: 4px;
 }
 
-input:focus{
+input:focus {
     border: none;
     outline: none;
 }
 
-input::placeholder{
+input::placeholder {
     font-family: 'Raleway', sans-serif;
     opacity: 0.5;
 }
@@ -69,10 +68,9 @@ input::placeholder{
     width: 200px;
 }
 
-.input-second::-webkit-outer-spin-button,input::-webkit-inner-spin-button {
+.input-second::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
-
 
 .btn {
     display: block;
@@ -91,24 +89,23 @@ input::placeholder{
     color: #000;
 }
 
-.btn:hover{
+.btn:hover {
     background-color: rgba(0, 128, 0, 0.8);
     color: #fff;
 }
 
-.total{
-   align-items: end;
+.total {
+    align-items: end;
     text-align: end;
     margin-right: 60px;
 }
 
-span{
+span {
     font-family: 'Montserrat', sans-serif;
     font-size: 30px;
-
 }
 
-.task-container{
+.task-container {
     display: flex;
     align-items: center;
     margin: 0 auto;
@@ -127,7 +124,7 @@ img {
     align-items: end;
 }
 
-.imageDelete{
+.imageDelete {
     margin-left: 30px
 }
 
@@ -140,9 +137,10 @@ p.whereSpent {
     font-size: 30px;
     text-align: start;
     margin-bottom: 0;
-    word-wrap:break-word;
+    word-wrap: break-word;
 }
-.expencese{
+
+.expencese {
     width: 200px;
     background: none;
     color: #000;
@@ -150,20 +148,20 @@ p.whereSpent {
     font-size: 30px;
     margin-left: 30px;
     padding: 0;
+    word-wrap: break-word;
 }
 
-.total{
+.total {
     border-bottom: 2px #000 solid;
     margin: 0 auto;
     margin-bottom: 20px;
 }
 
-p.countNum{
+p.countNum {
     display: flex;
     padding-left: 10px;
     height: 40px;
     align-items: center;
     font-size: 30px;
     text-align: center;
-
 }

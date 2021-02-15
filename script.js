@@ -23,7 +23,6 @@ const updateValSecond = (event) => {
   valueInputSecond = event.target.value;
 };
 
-
 const onclickButton = () => {
   allItems.push({
     textFirst: valueInputFirst,
@@ -36,13 +35,11 @@ const onclickButton = () => {
   render();
 }
 
-
 const render = () => {
   const content = document.getElementById('content-page');
   while (content.firstChild) {
     content.removeChild(content.firstChild);
   }
-
 
   const totalCalc = () => {
     total = 0;
@@ -63,20 +60,17 @@ const render = () => {
 
     countNum.innerText += (index + 1) + ')';
 
-
     const whereSpent = document.createElement('p');
     whereSpent.className = 'whereSpent';
     whereSpent.innerText = item.textFirst;
 
-    const expencese = document.createElement('input');
+    const expencese = document.createElement('p');
     expencese.className = 'expencese';
-    expencese.value = item.textSecond;
-    expencese.disabled = true;
-    expencese.type = 'number';
+    expencese.innerText = item.textSecond;
+
     expencese.onchange = function (event) {
       allItems[index].textSecond = event.target.value;
     }
-
 
     const imageEdit = document.createElement('img');
     imageEdit.className = 'imageEdit';
@@ -86,15 +80,30 @@ const render = () => {
     imageDelete.className = 'imageDelete';
     imageDelete.src = 'img/delete.svg';
 
-    totalCalc();
+    imageDelete.onclick = () => {
+      onClickImageDelete(whereSpent, expencese)
+    }
 
+    imageEdit.onclick = () => {
+      onClickImageEdit()
+    }
+
+    totalCalc();
 
     container.appendChild(countNum);
     container.appendChild(whereSpent);
     container.appendChild(expencese);
     container.appendChild(imageEdit);
     container.appendChild(imageDelete);
-
     content.appendChild(container);
   })
+}
+
+const onClickImageDelete = (index) => {
+  allItems.splice(index, 1)
+  render()
+}
+
+const onClickImageEdit = (firstInput, secondInput) => {
+
 }
