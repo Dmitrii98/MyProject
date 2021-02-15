@@ -33,7 +33,7 @@ p {
   font-size: 22px;
   color: #1d1c17;
   font-weight: bold;
-  background-color: rgba(255,255,255, 0.2);
+  background-color: rgba(255, 255, 255, 0.2);
   border-radius: 5px;
 }
 
@@ -46,7 +46,6 @@ p {
   justify-content: center;
   align-items: flex-end;
   margin-bottom: 50px;
-
 }
 
 input {
@@ -112,7 +111,7 @@ input::placeholder {
   color: #fff;
 }
 
-.btn:focus{
+.btn:focus {
   outline: none;
 }
 
@@ -126,14 +125,14 @@ input::placeholder {
   font-family: 'Montserrat', sans-serif;
   font-size: 36px;
   font-weight: bold;
-  background-color: rgba(255,255,255, 0.7);
+  background-color: rgba(255, 255, 255, 0.7);
 }
 
-#sum{
+#sum {
   font-family: 'Montserrat', sans-serif;
   font-size: 36px;
   font-weight: bold;
-  background-color: rgba(255,255,255, 0.7);
+  background-color: rgba(255, 255, 255, 0.7);
 }
 
 .task-container {
@@ -142,9 +141,8 @@ input::placeholder {
   margin: 0 auto;
   margin-bottom: 10px;
   margin-top: 10px;
-  background-color: rgba(255,255,255, 0.7);
+  background-color: rgba(255, 255, 255, 0.7);
   border-radius: 6px;
-
 }
 
 img {
@@ -160,7 +158,6 @@ img {
   margin-left: 30px
 }
 
-
 p.firstField {
   width: 23vw;
   padding-left: 10px;
@@ -175,7 +172,7 @@ p.firstField {
 }
 
 input.firstFieldEdit {
-  background-color: rgba(255,255,255, 0.6);
+  background-color: rgba(255, 255, 255, 0.6);
   width: 22vw;
   margin-left: 10px;
   font-family: 'Montserrat', sans-serif;
@@ -197,12 +194,11 @@ input.firstFieldEdit {
 }
 
 input.secondFieldEdit {
-  background-color: rgba(255,255,255, 0.7);
+  background-color: rgba(255, 255, 255, 0.7);
   width: 11.7vw;
   font-family: 'Montserrat', sans-serif;
   font-size: 30px;
   margin-left: 30px;
-
 }
 
 .total {

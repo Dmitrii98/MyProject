@@ -73,7 +73,7 @@ const render = () => {
 
       secondField = document.createElement('p');
       secondField.className = 'secondField';
-      secondField.innerText = `${item.textSecond} ₽` ;
+      secondField.innerText = `${item.textSecond} ₽`;
 
       imageField = document.createElement('img');
       imageField.className = 'imageEdit';
@@ -105,13 +105,13 @@ const render = () => {
       }
     }
 
-    if(item.isEditFirst === false){
+    if (item.isEditFirst === false) {
       firstField.ondblclick = () => {
         item.isEditFirst = !item.isEditFirst;
         render();
         firstField.focus();
       }
-    }else{
+    } else {
       firstField = document.createElement('input');
       firstField.className = 'firstFieldEdit';
       firstField.value = item.textFirst;
@@ -124,13 +124,13 @@ const render = () => {
       }
     }
 
-    if(item.isEditSecond === false){
+    if (item.isEditSecond === false) {
       secondField.ondblclick = () => {
         item.isEditSecond = !item.isEditSecond;
         render();
         secondField.focus();
       }
-    }else{
+    } else {
       secondField = document.createElement('input');
       secondField.className = 'secondFieldEdit';
       secondField.value = item.textSecond;
@@ -144,11 +144,11 @@ const render = () => {
     }
 
     firstField.onchange = (event) => {
-      allItems[index].textFirst = event.target.value
+      allItems[index].textFirst = event.target.value;
     }
 
     secondField.onchange = (event) => {
-      allItems[index].textSecond = event.target.value
+      allItems[index].textSecond = event.target.value;
     }
 
     const imageDelete = document.createElement('img');
@@ -158,7 +158,6 @@ const render = () => {
     imageDelete.onclick = () => {
       onClickImageDelete(index);
     }
-
 
     totalCalc();
 
