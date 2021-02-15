@@ -4,6 +4,8 @@ let valueInputSecond = 0;
 let inputFirst = null;
 let inputSecond = null;
 let total = 0;
+let firstField = null;
+let secondField = null;
 
 window.onload = function init() {
   inputFirst = document.getElementById('input-first');
@@ -27,6 +29,7 @@ const onclickButton = () => {
   allItems.push({
     textFirst: valueInputFirst,
     textSecond: valueInputSecond,
+    isEdit: false
   });
   valueInputFirst = '';
   valueInputSecond = 0;
@@ -60,16 +63,34 @@ const render = () => {
 
     countNum.innerText += (index + 1) + ')';
 
-    const whereSpent = document.createElement('p');
-    whereSpent.className = 'whereSpent';
-    whereSpent.innerText = item.textFirst;
+    if (item.isEdit === false) {
+      firstField = document.createElement('p');
+      firstField.className = 'firstField';
+      firstField.innerText = item.textFirst;
 
-    const expencese = document.createElement('p');
-    expencese.className = 'expencese';
-    expencese.innerText = item.textSecond;
+      secondField = document.createElement('p');
+      secondField.className = 'secondField';
+      secondField.innerText = item.textSecond;
+    } else {
+      firstField = document.createElement('input');
+      firstField.className = 'firstFieldEdit';
+      firstField.value = item.textFirst;
+      firstField.type = 'text';
+      firstField.disabled = false;
 
-    expencese.onchange = function (event) {
-      allItems[index].textSecond = event.target.value;
+      secondField = document.createElement('input');
+      secondField.className = 'secondFieldEdit';
+      secondField.value = item.textSecond;
+      secondField.type = 'number';
+      secondField.disabled = false;
+    }
+
+    firstField.onchange = (event) => {
+      allItems[index].textFirst = event.target.value
+    }
+
+    secondField.onchange = (event) => {
+      allItems[index].textSecond = event.target.value
     }
 
     const imageEdit = document.createElement('img');
@@ -81,18 +102,20 @@ const render = () => {
     imageDelete.src = 'img/delete.svg';
 
     imageDelete.onclick = () => {
-      onClickImageDelete(whereSpent, expencese);
+      onClickImageDelete(index);
     }
 
     imageEdit.onclick = () => {
-      onClickImageEdit();
+      item.isEdit = !item.isEdit;
+      render();
+      firstField.focus()
     }
 
     totalCalc();
 
     container.appendChild(countNum);
-    container.appendChild(whereSpent);
-    container.appendChild(expencese);
+    container.appendChild(firstField);
+    container.appendChild(secondField);
     container.appendChild(imageEdit);
     container.appendChild(imageDelete);
     content.appendChild(container);
@@ -102,8 +125,13 @@ const render = () => {
 const onClickImageDelete = (index) => {
   allItems.splice(index, 1);
   render();
+  refreshSum()
 }
 
-const onClickImageEdit = (firstInput, secondInput) => {
-
+const refreshSum = () => {
+  total = 0;
+  allItems.forEach(item => {
+    total += +item.textSecond;
+  })
+  sum.innerText = total;
 }

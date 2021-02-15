@@ -61,11 +61,23 @@ input::placeholder {
 }
 
 .input-first {
+  font-family: 'Montserrat', sans-serif;
   width: 25vw;
+  font-size: 24px;
+}
+
+.input-first::placeholder {
+  font-size: 16px;
 }
 
 .input-second {
   width: 20vw;
+  font-size: 24px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.input-second::placeholder {
+  font-size: 16px;
 }
 
 .input-second::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
@@ -128,8 +140,9 @@ img {
   margin-left: 30px
 }
 
-p.whereSpent {
-  width: 40vw;
+
+p.firstField {
+  width: 23vw;
   padding-left: 10px;
   background: none;
   color: #000;
@@ -140,15 +153,32 @@ p.whereSpent {
   word-wrap: break-word;
 }
 
-.expencese {
-  width: 20vh;
+input.firstFieldEdit {
+  background-color: #fff;
+  width: 22vw;
+  margin-left: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
+}
+
+.secondField {
+  width: 32vh;
   background: none;
   color: #000;
   font-family: 'Montserrat', sans-serif;
   font-size: 30px;
   margin-left: 30px;
+  margin-right: 10px;
   padding: 0;
   word-wrap: break-word;
+}
+
+input.secondFieldEdit {
+  background-color: #fff;
+  width: 12vw;
+  margin-left: 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
 }
 
 .total {
