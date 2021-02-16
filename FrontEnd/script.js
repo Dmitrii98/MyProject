@@ -67,8 +67,7 @@ const render = () => {
   const content = document.getElementById('content-page');
   while (content.firstChild) {
     content.removeChild(content.firstChild);
-  }
-  ;
+  };
 
   const totalCalc = () => {
     total = 0;
@@ -197,7 +196,6 @@ const render = () => {
       let result = await response.json();
       allItems = result.data;
     }
-
 
     const imageDelete = document.createElement('img');
     imageDelete.className = 'imageDelete';
