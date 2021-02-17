@@ -138,7 +138,7 @@ const render = () => {
       firstField.disabled = false;
 
       firstField.onblur = () => {
-        item.isEditFirst = !item.isEditFirst;
+        isEditFirst = !isEditFirst;
         render();
       };
     };
