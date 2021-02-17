@@ -7,6 +7,9 @@ let total = 0;
 let firstField = null;
 let secondField = null;
 let imageField = null;
+let isEdit = false;
+let isEditFirst = false;
+let isEditSecond = false;
 
 window.onload = async function init() {
   inputFirst = document.getElementById('input-first');
@@ -21,7 +24,7 @@ window.onload = async function init() {
   let result = await resp.json();
   allItems = result.data;
   render();
-}
+};
 
 const updateValFirst = (event) => {
   valueInputFirst = event.target.value;
@@ -35,9 +38,6 @@ const onclickButton = async () => {
   allItems.push({
     textFirst: valueInputFirst,
     textSecond: valueInputSecond,
-    isEdit: false,
-    isEditFirst: false,
-    isEditSecond: false
   });
   const resp = await fetch('http://localhost:8080/createItem', {
     method: 'POST',
@@ -48,9 +48,6 @@ const onclickButton = async () => {
     body: JSON.stringify({
       textFirst: valueInputFirst,
       textSecond: valueInputSecond,
-      isEdit: false,
-      isEditFirst: false,
-      isEditSecond: false
     })
   });
   let result = await resp.json();
@@ -61,7 +58,7 @@ const onclickButton = async () => {
   inputFirst.value = '';
   inputSecond.value = '';
   render();
-}
+};
 
 const render = () => {
   const content = document.getElementById('content-page');
@@ -88,7 +85,7 @@ const render = () => {
 
     countNum.innerText += (index + 1) + ')';
 
-    if (item.isEdit === false) {
+    if (isEdit === false) {
       firstField = document.createElement('p');
       firstField.className = 'firstField';
       firstField.innerText = item.textFirst;
@@ -101,7 +98,7 @@ const render = () => {
       imageField.className = 'imageEdit';
       imageField.src = 'img/edit.svg';
       imageField.onclick = () => {
-        item.isEdit = !item.isEdit;
+        isEdit = !isEdit;
         render();
         firstField.focus();
       };
@@ -122,14 +119,14 @@ const render = () => {
       imageField.className = 'imageDone';
       imageField.src = 'img/done.svg';
       imageField.onclick = () => {
-        item.isEdit = !item.isEdit;
+        isEdit = !isEdit;
         render();
       };
     };
 
-    if (item.isEditFirst === false) {
+    if (isEditFirst === false) {
       firstField.ondblclick = () => {
-        item.isEditFirst = !item.isEditFirst;
+        isEditFirst = !isEditFirst;
         render();
         firstField.focus();
       };
@@ -146,9 +143,9 @@ const render = () => {
       };
     };
 
-    if (item.isEditSecond === false) {
+    if (isEditSecond === false) {
       secondField.ondblclick = () => {
-        item.isEditSecond = !item.isEditSecond;
+        isEditSecond = !isEditSecond;
         render();
         secondField.focus();
       };
@@ -160,7 +157,7 @@ const render = () => {
       secondField.disabled = false;
 
       secondField.onblur = () => {
-        item.isEditSecond = !item.isEditSecond;
+        isEditSecond = !isEditSecond;
         render();
       };
     };
