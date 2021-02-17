@@ -6,27 +6,32 @@ let inputSecond = null;
 let total = 0;
 let firstField = null;
 let secondField = null;
-let imageField = null
+let imageField = null;
 
-window.onload = function init() {
+window.onload = async function init() {
   inputFirst = document.getElementById('input-first');
   inputSecond = document.getElementById('input-second');
   inputFirst.addEventListener('change', updateValFirst);
   inputSecond.addEventListener('change', updateValSecond);
-
   const sum = document.getElementById('sum');
   sum.innerText = `${total} ₽`;
+  const resp = await fetch('http://localhost:8080/allItems', {
+    method: 'GET'
+  });
+  let result = await resp.json();
+  allItems = result.data;
   render();
 }
 
 const updateValFirst = (event) => {
   valueInputFirst = event.target.value;
 };
+
 const updateValSecond = (event) => {
   valueInputSecond = event.target.value;
 };
 
-const onclickButton = () => {
+const onclickButton = async () => {
   allItems.push({
     textFirst: valueInputFirst,
     textSecond: valueInputSecond,
@@ -34,6 +39,23 @@ const onclickButton = () => {
     isEditFirst: false,
     isEditSecond: false
   });
+  const resp = await fetch('http://localhost:8080/createItem', {
+    method: 'POST',
+    headers: {
+      'Content-type': 'application/json;charset=utf-8',
+      'Access-Control-Allow-Origin': '*'
+    },
+    body: JSON.stringify({
+      textFirst: valueInputFirst,
+      textSecond: valueInputSecond,
+      isEdit: false,
+      isEditFirst: false,
+      isEditSecond: false
+    })
+  });
+  let result = await resp.json();
+  allItems = result.data;
+
   valueInputFirst = '';
   valueInputSecond = 0;
   inputFirst.value = '';
@@ -45,15 +67,15 @@ const render = () => {
   const content = document.getElementById('content-page');
   while (content.firstChild) {
     content.removeChild(content.firstChild);
-  }
+  };
 
   const totalCalc = () => {
     total = 0;
     allItems.forEach(item => {
       total += +item.textSecond;
-    })
+    });
     sum.innerText = `${total} ₽`;
-  }
+  };
 
   allItems.map((item, index) => {
 
@@ -82,7 +104,7 @@ const render = () => {
         item.isEdit = !item.isEdit;
         render();
         firstField.focus();
-      }
+      };
     } else {
       firstField = document.createElement('input');
       firstField.className = 'firstFieldEdit';
@@ -102,15 +124,15 @@ const render = () => {
       imageField.onclick = () => {
         item.isEdit = !item.isEdit;
         render();
-      }
-    }
+      };
+    };
 
     if (item.isEditFirst === false) {
       firstField.ondblclick = () => {
         item.isEditFirst = !item.isEditFirst;
         render();
         firstField.focus();
-      }
+      };
     } else {
       firstField = document.createElement('input');
       firstField.className = 'firstFieldEdit';
@@ -121,15 +143,15 @@ const render = () => {
       firstField.onblur = () => {
         item.isEditFirst = !item.isEditFirst;
         render();
-      }
-    }
+      };
+    };
 
     if (item.isEditSecond === false) {
       secondField.ondblclick = () => {
         item.isEditSecond = !item.isEditSecond;
         render();
         secondField.focus();
-      }
+      };
     } else {
       secondField = document.createElement('input');
       secondField.className = 'secondFieldEdit';
@@ -140,16 +162,42 @@ const render = () => {
       secondField.onblur = () => {
         item.isEditSecond = !item.isEditSecond;
         render();
-      }
-    }
+      };
+    };
 
-    firstField.onchange = (event) => {
+    firstField.onchange = async (event) => {
       allItems[index].textFirst = event.target.value;
-    }
+      const response = await fetch('http://localhost:8080/updateItem', {
+        method: 'PATCH',
+        headers: {
+          'Content-type': 'application/json;charset=utf-8',
+          'Access-Control-Allow-Origin': '*'
+        },
+        body: JSON.stringify({
+          _id: allItems[index]._id,
+          textFirst: allItems[index].textFirst
+        })
+      });
+      let result = await response.json();
+      allItems = result.data;
+    };
 
-    secondField.onchange = (event) => {
+    secondField.onchange = async (event) => {
       allItems[index].textSecond = event.target.value;
-    }
+      const response = await fetch('http://localhost:8080/updateItem', {
+        method: 'PATCH',
+        headers: {
+          'Content-type': 'application/json;charset=utf-8',
+          'Access-Control-Allow-Origin': '*'
+        },
+        body: JSON.stringify({
+          _id: allItems[index]._id,
+          textSecond: allItems[index].textSecond
+        })
+      });
+      let result = await response.json();
+      allItems = result.data;
+    };
 
     const imageDelete = document.createElement('img');
     imageDelete.className = 'imageDelete';
@@ -157,7 +205,7 @@ const render = () => {
 
     imageDelete.onclick = () => {
       onClickImageDelete(index);
-    }
+    };
 
     totalCalc();
 
@@ -167,20 +215,24 @@ const render = () => {
     container.appendChild(imageField);
     container.appendChild(imageDelete);
     content.appendChild(container);
-  })
-}
+  });
+};
 
-const onClickImageDelete = (index) => {
-  allItems.splice(index, 1);
+const onClickImageDelete = async (index) => {
+  const response = await fetch(`http://localhost:8080/deleteItem?id=${allItems[index]._id}`, {
+    method: 'DELETE'
+  });
+  let result = await response.json()
+  allItems = result.data;
   render();
   refreshSum();
-}
+};
 
 const refreshSum = () => {
   total = 0;
   allItems.forEach(item => {
     total += +item.textSecond;
-  })
+  });
   sum.innerText = `${total} ₽`;
-}
+};
 
