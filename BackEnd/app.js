@@ -1,5 +1,5 @@
 const express = require('express');
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express();
@@ -11,7 +11,7 @@ mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true, useFindA
 
 app.use(cors());
 app.use(bodyParser.json());
-app.use('/',apiRoutes);
+app.use('/', apiRoutes);
 
 app.listen(8080, () => {
   console.log('Server is working');

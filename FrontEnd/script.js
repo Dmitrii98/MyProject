@@ -143,8 +143,8 @@ const render = () => {
       firstField.onblur = () => {
         item.isEditFirst = !item.isEditFirst;
         render();
-      }
-    }
+      };
+    };
 
     if (item.isEditSecond === false) {
       secondField.ondblclick = () => {
@@ -162,8 +162,8 @@ const render = () => {
       secondField.onblur = () => {
         item.isEditSecond = !item.isEditSecond;
         render();
-      }
-    }
+      };
+    };
 
     firstField.onchange = async (event) => {
       const response = await fetch('http://localhost:8080/updateItem', {
@@ -195,7 +195,7 @@ const render = () => {
       });
       let result = await response.json();
       allItems = result.data;
-    }
+    };
 
     const imageDelete = document.createElement('img');
     imageDelete.className = 'imageDelete';
@@ -213,25 +213,24 @@ const render = () => {
     container.appendChild(imageField);
     container.appendChild(imageDelete);
     content.appendChild(container);
-  })
-}
+  });
+};
 
 const onClickImageDelete = async (index) => {
   const response = await fetch(`http://localhost:8080/deleteItem?id=${allItems[index]._id}`, {
     method: 'DELETE'
   });
-  console.log('llll')
-  let result = await response.json()
+  let result = await response.json();
   allItems = result.data;
   render();
   refreshSum();
-}
+};
 
 const refreshSum = () => {
   total = 0;
   allItems.forEach(item => {
     total += +item.textSecond;
-  })
+  });
   sum.innerText = `${total} ₽`;
 }
 

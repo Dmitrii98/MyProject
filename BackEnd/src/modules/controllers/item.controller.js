@@ -8,7 +8,6 @@ module.exports.getAllItems = (req, res, next) => {
 
 module.exports.createItem = (req, res, next) => {
   const cost = new Purchase(req.body);
-  console.log(cost);
   cost.save().then(() => {
     Purchase.find().then(result => {
       res.send({data: result});
@@ -17,7 +16,7 @@ module.exports.createItem = (req, res, next) => {
 };
 
 module.exports.updateItem = (req, res, next) => {
-  Purchase.updateOne({_id: req.body._id},req.body).then(result => {
+  Purchase.updateOne({_id: req.body._id}, req.body).then(result => {
     Purchase.find().then(result => {
       res.send({data: result});
     });
