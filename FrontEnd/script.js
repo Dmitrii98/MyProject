@@ -57,10 +57,10 @@ const onclickButton = async () => {
     inputSecond.className = 'invalidSecondInput';
     return;
   }
-  allItems.push({
-    textFirst: valueInputFirst,
-    textSecond: valueInputSecond,
-  });
+    allItems.push({
+      textFirst: valueInputFirst,
+      textSecond: valueInputSecond,
+    });
   const resp = await fetch('http://localhost:8080/createItem', {
     method: 'POST',
     headers: {
@@ -273,3 +273,4 @@ const refreshSum = () => {
   });
   sum.innerText = `${total} ₽`;
 };
+
