@@ -23,9 +23,9 @@ window.onload = async function init() {
   let result = await resp.json();
   allItems = result.data;
   allItems.forEach(item => {
-    item.isEdit = false
-    item.isEditFirst = false
-    item.isEditSecond = false
+    item.isEdit = false;
+    item.isEditFirst = false;
+    item.isEditSecond = false;
   })
   render();
 };
@@ -75,9 +75,9 @@ const onclickButton = async () => {
   let result = await resp.json();
   allItems = result.data;
   allItems.forEach(item => {
-    item.isEdit = false
-    item.isEditFirst = false
-    item.isEditSecond = false
+    item.isEdit = false;
+    item.isEditFirst = false;
+    item.isEditSecond = false;
   })
   valueInputFirst = '';
   valueInputSecond = 0;
@@ -185,8 +185,7 @@ const render = () => {
         item.isEditSecond = !item.isEditSecond;
         render();
       };
-    }
-    ;
+    };
 
     firstField.onchange = async (event) => {
       allItems[index].textFirst = event.target.value;
@@ -204,9 +203,9 @@ const render = () => {
       let result = await response.json();
       allItems = result.data;
       allItems.forEach(item => {
-        item.isEdit = false
-        item.isEditFirst = false
-        item.isEditSecond = false
+        item.isEdit = false;
+        item.isEditFirst = false;
+        item.isEditSecond = false;
       })
     };
 
@@ -226,9 +225,9 @@ const render = () => {
       let result = await response.json();
       allItems = result.data;
       allItems.forEach(item => {
-        item.isEdit = false
-        item.isEditFirst = false
-        item.isEditSecond = false
+        item.isEdit = false;
+        item.isEditFirst = false;
+        item.isEditSecond = false;
       })
     };
 
@@ -258,9 +257,9 @@ const onClickImageDelete = async (index) => {
   let result = await response.json()
   allItems = result.data;
   allItems.forEach(item => {
-    item.isEdit = false
-    item.isEditFirst = false
-    item.isEditSecond = false
+    item.isEdit = false;
+    item.isEditFirst = false;
+    item.isEditSecond = false;
   })
   render();
   refreshSum();
