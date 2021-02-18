@@ -7,15 +7,14 @@ let total = 0;
 let firstField = null;
 let secondField = null;
 let imageField = null;
-let isEdit = false;
-let isEditFirst = false;
-let isEditSecond = false;
 
 window.onload = async function init() {
   inputFirst = document.getElementById('input-first');
   inputSecond = document.getElementById('input-second');
   inputFirst.addEventListener('change', updateValFirst);
+  inputFirst.addEventListener('focus', focusValFirst);
   inputSecond.addEventListener('change', updateValSecond);
+  inputSecond.addEventListener('focus', focusValSecond);
   const sum = document.getElementById('sum');
   sum.innerText = `${total} ₽`;
   const resp = await fetch('http://localhost:8080/allItems', {
@@ -23,8 +22,20 @@ window.onload = async function init() {
   });
   let result = await resp.json();
   allItems = result.data;
+  allItems.forEach(item => {
+    item.isEdit = false
+    item.isEditFirst = false
+    item.isEditSecond = false
+  })
   render();
 };
+
+const focusValFirst = () =>{
+  inputFirst.className = 'input-first'
+}
+const focusValSecond = () =>{
+  inputSecond.className = 'input-second'
+}
 
 const updateValFirst = (event) => {
   valueInputFirst = event.target.value;
@@ -35,6 +46,17 @@ const updateValSecond = (event) => {
 };
 
 const onclickButton = async () => {
+  if (valueInputFirst === '' && valueInputSecond === 0) {
+    inputFirst.className = 'invalidFirstInput';
+    inputSecond.className = 'invalidSecondInput';
+    return;
+  } else if (valueInputFirst === '') {
+    inputFirst.className = 'invalidFirstInput';
+    return;
+  } else if (valueInputSecond === 0){
+    inputSecond.className = 'invalidSecondInput';
+    return;
+  }
   allItems.push({
     textFirst: valueInputFirst,
     textSecond: valueInputSecond,
@@ -52,11 +74,16 @@ const onclickButton = async () => {
   });
   let result = await resp.json();
   allItems = result.data;
-
+  allItems.forEach(item => {
+    item.isEdit = false
+    item.isEditFirst = false
+    item.isEditSecond = false
+  })
   valueInputFirst = '';
   valueInputSecond = 0;
   inputFirst.value = '';
   inputSecond.value = '';
+
   render();
 };
 
@@ -65,7 +92,6 @@ const render = () => {
   while (content.firstChild) {
     content.removeChild(content.firstChild);
   };
-
   const totalCalc = () => {
     total = 0;
     allItems.forEach(item => {
@@ -75,7 +101,6 @@ const render = () => {
   };
 
   allItems.map((item, index) => {
-
     const container = document.createElement('div');
     container.id = `task-${index}`;
     container.className = 'task-container';
@@ -85,7 +110,7 @@ const render = () => {
 
     countNum.innerText += (index + 1) + ')';
 
-    if (isEdit === false) {
+    if (item.isEdit === false) {
       firstField = document.createElement('p');
       firstField.className = 'firstField';
       firstField.innerText = item.textFirst;
@@ -98,7 +123,7 @@ const render = () => {
       imageField.className = 'imageEdit';
       imageField.src = 'img/edit.svg';
       imageField.onclick = () => {
-        isEdit = !isEdit;
+        item.isEdit = !item.isEdit;
         render();
         firstField.focus();
       };
@@ -119,14 +144,14 @@ const render = () => {
       imageField.className = 'imageDone';
       imageField.src = 'img/done.svg';
       imageField.onclick = () => {
-        isEdit = !isEdit;
+        item.isEdit = !item.isEdit;
         render();
       };
     };
 
-    if (isEditFirst === false) {
+    if (item.isEditFirst === false) {
       firstField.ondblclick = () => {
-        isEditFirst = !isEditFirst;
+        item.isEditFirst = !item.isEditFirst;
         render();
         firstField.focus();
       };
@@ -138,14 +163,14 @@ const render = () => {
       firstField.disabled = false;
 
       firstField.onblur = () => {
-        isEditFirst = !isEditFirst;
+        item.isEditFirst = !item.isEditFirst;
         render();
       };
     };
 
-    if (isEditSecond === false) {
+    if (item.isEditSecond === false) {
       secondField.ondblclick = () => {
-        isEditSecond = !isEditSecond;
+        item.isEditSecond = !item.isEditSecond;
         render();
         secondField.focus();
       };
@@ -157,10 +182,11 @@ const render = () => {
       secondField.disabled = false;
 
       secondField.onblur = () => {
-        isEditSecond = !isEditSecond;
+        item.isEditSecond = !item.isEditSecond;
         render();
       };
-    };
+    }
+    ;
 
     firstField.onchange = async (event) => {
       allItems[index].textFirst = event.target.value;
@@ -177,6 +203,11 @@ const render = () => {
       });
       let result = await response.json();
       allItems = result.data;
+      allItems.forEach(item => {
+        item.isEdit = false
+        item.isEditFirst = false
+        item.isEditSecond = false
+      })
     };
 
     secondField.onchange = async (event) => {
@@ -194,6 +225,11 @@ const render = () => {
       });
       let result = await response.json();
       allItems = result.data;
+      allItems.forEach(item => {
+        item.isEdit = false
+        item.isEditFirst = false
+        item.isEditSecond = false
+      })
     };
 
     const imageDelete = document.createElement('img');
@@ -221,6 +257,11 @@ const onClickImageDelete = async (index) => {
   });
   let result = await response.json()
   allItems = result.data;
+  allItems.forEach(item => {
+    item.isEdit = false
+    item.isEditFirst = false
+    item.isEditSecond = false
+  })
   render();
   refreshSum();
 };
@@ -232,4 +273,3 @@ const refreshSum = () => {
   });
   sum.innerText = `${total} ₽`;
 };
-
