@@ -1,254 +1,254 @@
 * {
-  margin: 0;
+    margin: 0;
 }
 
 .main {
-  height: 100vh;
-  width: 100vw;
-  background-image: url("img/background.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    background-image: url("img/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .nav_static {
-  position: fixed;
+    position: fixed;
 }
 
 .container {
-  width: 45vw;
-  margin: 0 auto;
-  text-align: center;
-  padding-top: 10px;
-  height: 500px;
-  justify-content: center;
-  display: flex;
+    width: 45vw;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 10px;
+    height: 500px;
+    justify-content: center;
+    display: flex;
 }
 
 .headline {
-  font-family: 'Roboto', sans-serif;
-  margin-bottom: 60px;
-  margin-top: 50px;
-  font-size: 60px;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 60px;
+    margin-top: 50px;
+    font-size: 60px;
 }
 
 p {
-  margin: 0;
-  text-align: start;
-  margin-bottom: 5px;
-  font-family: 'Raleway', sans-serif;
-  font-size: 22px;
-  color: #1d1c17;
-  font-weight: bold;
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 5px;
+    margin: 0;
+    text-align: start;
+    margin-bottom: 5px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 22px;
+    color: #1d1c17;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
 }
 
 .second-block {
-  margin-left: 15px;
+    margin-left: 15px;
 }
 
 .input-date {
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-bottom: 50px;
 }
 
 input {
-  height: 40px;
-  padding-left: 15px;
-  border: none;
-  border-radius: 6px;
+    height: 40px;
+    padding-left: 15px;
+    border: none;
+    border-radius: 6px;
 }
 
 input:focus {
-  border: none;
-  outline: none;
+    border: none;
+    outline: none;
 }
 
 input::placeholder {
-  font-family: 'Raleway', sans-serif;
-  opacity: 0.5;
+    font-family: 'Raleway', sans-serif;
+    opacity: 0.5;
 }
 
 .input-first {
-  font-family: 'Montserrat', sans-serif;
-  width: 25vw;
-  font-size: 24px;
+    font-family: 'Montserrat', sans-serif;
+    width: 25vw;
+    font-size: 24px;
 }
 
 .input-first::placeholder {
-  font-size: 16px;
+    font-size: 16px;
 }
 
 .input-second {
-  width: 20vw;
-  font-size: 24px;
-  font-family: 'Montserrat', sans-serif;
+    width: 20vw;
+    font-size: 24px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .input-second::placeholder {
-  font-size: 16px;
+    font-size: 16px;
 }
 
 .input-second::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
+    -webkit-appearance: none;
 }
 
 .btn {
-  display: block;
-  height: 20px;
-  margin-left: 15px;
-  height: 42px;
-  width: 100px;
-  text-align: center;
-  font-family: 'Raleway', sans-serif;
-  background-color: rgb(0, 128, 0);
-  border: none;
-  transition: background-color, color 0.2s;
-  font-size: 16px;
-  border-radius: 4px;
-  padding: 5px;
-  color: #000;
+    display: block;
+    height: 20px;
+    margin-left: 15px;
+    height: 42px;
+    width: 100px;
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    background-color: rgb(0, 128, 0);
+    border: none;
+    transition: background-color, color 0.2s;
+    font-size: 16px;
+    border-radius: 4px;
+    padding: 5px;
+    color: #000;
 }
 
 .btn:hover {
-  background-color: rgba(0, 128, 0, 0.8);
-  color: #fff;
+    background-color: rgba(0, 128, 0, 0.8);
+    color: #fff;
 }
 
 .btn:focus {
-  outline: none;
+    outline: none;
 }
 
 .total {
-  align-items: end;
-  text-align: end;
-  margin-right: 60px;
+    align-items: end;
+    text-align: end;
+    margin-right: 60px;
 }
 
 .total-span {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 36px;
-  font-weight: bold;
-  background-color: rgba(255, 255, 255, 0.7);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 36px;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.7);
 }
 
 #sum {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 36px;
-  font-weight: bold;
-  background-color: rgba(255, 255, 255, 0.7);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 36px;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.7);
 }
 
 .task-container {
-  display: flex;
-  align-items: center;
-  margin: 0 auto;
-  margin-bottom: 10px;
-  margin-top: 10px;
-  background-color: rgba(255, 255, 255, 0.7);
-  border-radius: 6px;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 6px;
 }
 
 .task-container:hover {
-  background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
 img {
-  width: 25px;
-  height: 25px;
-  margin-left: 15px;
-  cursor: pointer;
-  padding-right: 10px;
-  align-items: end;
+    width: 25px;
+    height: 25px;
+    margin-left: 15px;
+    cursor: pointer;
+    padding-right: 10px;
+    align-items: end;
 }
 
 .imageDelete {
-  margin-left: 30px
+    margin-left: 30px;
 }
 
 p.firstField {
-  width: 23vw;
-  padding-left: 10px;
-  background: none;
-  color: #000;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 30px;
-  text-align: start;
-  margin-bottom: 0;
-  word-wrap: break-word;
-  font-weight: 400;
+    width: 23vw;
+    padding-left: 10px;
+    background: none;
+    color: #000;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    text-align: start;
+    margin-bottom: 0;
+    word-wrap: break-word;
+    font-weight: 400;
 }
 
 input.firstFieldEdit {
-  background-color: rgba(255, 255, 255, 0.6);
-  width: 19.9vw;
-  margin-left: 10px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 30px;
-  padding-left: 0;
+    background-color: rgba(255, 255, 255, 0.6);
+    width: 19.9vw;
+    margin-left: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    padding-left: 0;
 }
 
 .secondField {
-  width: 32vh;
-  background: none;
-  color: #000;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 30px;
-  margin-left: 30px;
-  margin-right: 10px;
-  padding: 0;
-  word-wrap: break-word;
-  font-weight: 400;
+    width: 32vh;
+    background: none;
+    color: #000;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    margin-left: 30px;
+    margin-right: 10px;
+    padding: 0;
+    word-wrap: break-word;
+    font-weight: 400;
 }
 
 input.secondFieldEdit {
-  background-color: rgba(255, 255, 255, 0.7);
-  width: 11.7vw;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 30px;
-  margin-left: 30px;
-  padding-left: 0;
-  margin-right: 55px;
+    background-color: rgba(255, 255, 255, 0.7);
+    width: 11.7vw;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    margin-left: 30px;
+    padding-left: 0;
+    margin-right: 55px;
 }
 
 .total {
-  margin: 0 auto;
-  margin-bottom: 20px;
+    margin: 0 auto;
+    margin-bottom: 20px;
 }
 
 p.countNum {
-  display: flex;
-  padding-left: 10px;
-  height: 40px;
-  align-items: center;
-  font-size: 30px;
-  text-align: center;
+    display: flex;
+    padding-left: 10px;
+    height: 40px;
+    align-items: center;
+    font-size: 30px;
+    text-align: center;
 }
 
 .invalidFirstInput {
-  font-family: 'Montserrat', sans-serif;
-  width: 25vw;
-  font-size: 24px;
-  border: 2px solid red;
-  transition-property: border;
-  transition-duration: .2s;
+    font-family: 'Montserrat', sans-serif;
+    width: 25vw;
+    font-size: 24px;
+    border: 2px solid red;
+    transition-property: border;
+    transition-duration: .2s;
 }
 
 .invalidSecondInput {
-  width: 20vw;
-  font-size: 24px;
-  font-family: 'Montserrat', sans-serif;
-  border: 2px solid red;
-  transition-property: border;
-  transition-duration: .2s;
+    width: 20vw;
+    font-size: 24px;
+    font-family: 'Montserrat', sans-serif;
+    border: 2px solid red;
+    transition-property: border;
+    transition-duration: .2s;
 }
 
 #content-page {
-  height: 50vh;
-  margin-top: 400px;
-  overflow-y: scroll;
+    height: 50vh;
+    margin-top: 400px;
+    overflow-y: scroll;
 }
 
 #content-page::-webkit-scrollbar {
