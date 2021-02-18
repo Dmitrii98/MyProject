@@ -10,12 +10,18 @@
   background-size: cover;
 }
 
+.nav_static {
+  position: fixed;
+}
+
 .container {
   width: 45vw;
   margin: 0 auto;
   text-align: center;
   padding-top: 10px;
   height: 500px;
+  justify-content: center;
+  display: flex;
 }
 
 .headline {
@@ -145,7 +151,7 @@ input::placeholder {
   border-radius: 6px;
 }
 
-.task-container:hover{
+.task-container:hover {
   background-color: rgba(255, 255, 255, 0.8);
 }
 
@@ -177,7 +183,7 @@ p.firstField {
 
 input.firstFieldEdit {
   background-color: rgba(255, 255, 255, 0.6);
-  width: 22vw;
+  width: 19.9vw;
   margin-left: 10px;
   font-family: 'Montserrat', sans-serif;
   font-size: 30px;
@@ -203,6 +209,8 @@ input.secondFieldEdit {
   font-family: 'Montserrat', sans-serif;
   font-size: 30px;
   margin-left: 30px;
+  padding-left: 0;
+  margin-right: 55px;
 }
 
 .total {
@@ -219,3 +227,31 @@ p.countNum {
   text-align: center;
 }
 
+.invalidFirstInput {
+  font-family: 'Montserrat', sans-serif;
+  width: 25vw;
+  font-size: 24px;
+  border: 2px solid red;
+  transition-property: border;
+  transition-duration: .2s;
+}
+
+.invalidSecondInput {
+  width: 20vw;
+  font-size: 24px;
+  font-family: 'Montserrat', sans-serif;
+  border: 2px solid red;
+  transition-property: border;
+  transition-duration: .2s;
+}
+
+#content-page {
+  height: 50vh;
+  margin-top: 400px;
+  overflow-y: scroll;
+}
+
+#content-page::-webkit-scrollbar {
+  width: 0px;
+  background: rgba(255, 255, 255, 0.0);
+}
